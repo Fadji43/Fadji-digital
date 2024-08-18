@@ -1,3 +1,23 @@
+/******************banner ********************/
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('banner');
+
+    // Fonction pour gérer la classe de réduction
+    function handleScroll() {
+        if (window.scrollY > 100) { // Modifier la valeur selon vos besoins
+            banner.classList.add('banner-shrink');
+        } else {
+            banner.classList.remove('banner-shrink');
+        }
+    }
+
+    // Écouteur d'événements pour le défilement
+    window.addEventListener('scroll', handleScroll);
+
+    // Appel initial pour vérifier la position du défilement lors du chargement
+    handleScroll();
+});
+
 /***************bulle***************/
 document.addEventListener('DOMContentLoaded', () => {
     const bubbles = document.querySelectorAll('.bubble-need');
@@ -87,14 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-/***********compétences*********/
-document.addEventListener('DOMContentLoaded', () => {
-    const levels = document.querySelectorAll('.level');
-    levels.forEach(level => {
-        const finalWidth = level.style.width;
-        level.style.setProperty('--final-width', finalWidth);
-    });
-});
 
 
 /**************presta************/
@@ -139,5 +151,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+/*****************avion***************/
+document.addEventListener('DOMContentLoaded', function() {
+    const paperPlane = document.getElementById('paper-plane');
+    const projetSection = document.querySelector('.projet');
 
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function checkAnimation() {
+        if (isElementInViewport(projetSection)) {
+            paperPlane.style.animationPlayState = 'running';
+        }
+    }
+
+    window.addEventListener('scroll', checkAnimation);
+    checkAnimation(); 
+});
+
+/***********compétences*********/
+document.addEventListener('DOMContentLoaded', () => {
+    const levels = document.querySelectorAll('.level');
+    levels.forEach(level => {
+        const finalWidth = level.style.width;
+        level.style.setProperty('--final-width', finalWidth);
+    });
+});
 
