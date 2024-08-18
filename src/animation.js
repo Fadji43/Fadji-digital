@@ -185,3 +185,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/************gallery*************/
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalVideo = document.getElementById('modal-video');
+    const modalDescription = document.getElementById('modal-description');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    function openModal(index) {
+        currentIndex = index;
+        const item = galleryItems[currentIndex];
+        const type = item.getAttribute('data-type');
+        const src = item.getAttribute('data-src');
+        const description = item.getAttribute('data-description');
+
+        if (type === 'image') {
+            modalImage.src = src;
+            modalImage.style.display = 'block';
+            modalVideo.style.display = 'none';
+        } else if (type === 'video') {
+            modalVideo.src = src;
+            modalVideo.style.display = 'block';
+            modalImage.style.display = 'none';
+        }
+
+        modalDescription.textContent = description;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        modalImage.src = '';
+        modalVideo.src = '';
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        openModal(currentIndex);
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        openModal(currentIndex);
+    }
+
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            openModal(index);
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+});
