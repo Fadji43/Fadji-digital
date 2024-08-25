@@ -263,7 +263,7 @@ h1 {
 }
 
 /***********Prestation********/
-.presta {
+#presta {
     display: flex;
     justify-content: center;
 }
@@ -505,11 +505,12 @@ h2 {
 .skill {
     display: flex; 
     flex-direction: column;
+    line-height: 2%;
 }
 
 .bar {
     width: 100%;
-    height: 20px;
+    height: 10px;
     background: #f8f5e0;
     border-radius: 5px;
     overflow: hidden;
@@ -519,8 +520,8 @@ h2 {
 .level {
     height: 100%;
     background-color: #7D5CED;
-    width: 0%; /* Commence à 0% */
-    transition: width 2s ease; /* Animation de la largeur sur 2 secondes */
+    width: 0%; 
+    transition: width 2s ease;
 }
 
 @keyframes fillBar {
@@ -543,35 +544,40 @@ h2 {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px 20px;
 }
 
 .gallery-item {
-    width: calc(45% - 10px);
-    padding: 10pxs 10px 30px 10px; 
+    width: 350px;
+    height: 200px;
+    padding: 10px 10px 60px 10px; /* Correction : enlever le 's' après '10px' */
     background: white; 
     border: 2px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     position: relative; 
+    overflow: hidden; /* Assurez-vous que l'image ne dépasse pas */
 }
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
     display: block;
-    border-radius: 3px; /* Coins légèrement arrondis de l'image */
+    border-radius: 3px;
 }
+
 
 .description {
     text-align: center;
     margin-top: 8px;
     font-size: 0.9em;
-    color: #333; /* Couleur du texte de la description */
+    color: #333; 
 }
 
 .description a {
-    color: #007bff; /* Couleur du lien */
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -579,60 +585,71 @@ h2 {
     text-decoration: underline; /* Soulignement au survol */
 }
  /************modale************/
-.modal {
-    display: none;
+ .modal {
+    display: flex;
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre le contenu horizontalement */
 }
 
 .modal-content {
-    position: relative;
+    display: flex; /* Flexbox pour aligner le contenu */
+    flex-direction: column; /* Permet d'aligner verticalement les éléments (image, texte, etc.) */
+    justify-content: center; /* Centre le contenu verticalement */
+    align-items: center; /* Centre le contenu horizontalement */
     width: 80%;
-    max-width: 700px;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Ajout de padding pour l'esthétique */
+    position: relative;
 }
 
 .modal-media {
-    width: 100%;
-    height: auto;
-}
-
-#modal-video {
-    display: none;
-}
-
-#modal-image {
-    display: none;
-}
-
-.modal-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.modal-navigation .prev, .modal-navigation .next {
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-    user-select: none;
+    max-width: 100%; /* S'assurer que l'image ne dépasse pas la largeur de la modale */
+    max-height: 80vh; /* Limiter la hauteur pour éviter le débordement vertical */
+    object-fit: contain; /* Maintenir le rapport d'aspect de l'image */
+    margin: auto; /* Centre l'image */
 }
 
 .close {
     position: absolute;
     top: 10px;
-    right: 10px;
-    color: white;
-    font-size: 30px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.modal-navigation .prev,
+.modal-navigation .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement les flèches */
+    width: auto;
+    padding: 10px;
+    color: black; /* Changer la couleur des flèches en noir */
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.modal-navigation .prev {
+    left: 10px; /* Un peu d'espace par rapport au bord gauche */
+}
+
+.modal-navigation .next {
+    right: 10px; /* Un peu d'espace par rapport au bord droit */
 }
 
  /***********formulaire**********/

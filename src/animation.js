@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 /*********carroussel************/
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.carousel-slide');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentIndex + 1);
     }, 3000);
 });
-
+*/
 
 
 /***********projet-dev***********/
@@ -186,68 +186,95 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /************gallery*************/
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modal-image');
-    const modalVideo = document.getElementById('modal-video');
     const modalDescription = document.getElementById('modal-description');
-    const closeBtn = document.querySelector('.close');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    const closeModal = document.querySelector('.modal .close');
+    const prevButton = document.querySelector('.modal-navigation .prev');
+    const nextButton = document.querySelector('.modal-navigation .next');
+    let currentImages = [];
     let currentIndex = 0;
 
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    //  tableau des projets avec leurs images, description
+    const projects = {
+        project1: {
+            images: ['./src/images/photo/realisation/9_11zon.webp', './src/images/photo/realisation/49_11zon.webp', './src/images/photo/realisation/78.webp' ],
+            description: 'Photo portrait',
+        },
+        project2: {
+            images: ['./src/images/photo/realisation/230.webp', './src/images/photo/realisation/245.webp', './src/images/photo/realisation/IMG_6220.webp', './src/images/photo/realisation/IMG_6273.webp', './src/images/photo/realisation/IMG_6253.webp', './src/images/photo/realisation/IMG_6238.webp', './src/images/photo/realisation/behourd.webp', './src/images/photo/realisation/IMG_0137.webp' ],
+            description: 'Photo sportive & événementielle'
+        },
+        project3: {
+            images: ['./src/images/video/pub-colo.mp4'],
+            description: 'Vidéo',
+        },
+        project4: {
+            images: ['./src/images/photo/aprem_game_11zon', './src/images/photo/chasseOoeuf_11zon.webp', './src/images/photo/realisation/compet_amicale_3.02_V4.webp', './src/images/photo/realisation/compet_amicale_2023_2.webp', './src/images/photo/realisation/country_line_4_11zon.webp' ],
+            description: 'Affiche'
+        },
+        project5: {
+            images: ['./src/images/photo/IMG_9278', './src/images/projets/IMG_9284.webp', './src/images/projets/439437204_326418840545592_3046911930542564764_n_11zon.webp'],
+            description: 'Publicité',
+        },
+        project6: {
+            images: ['./src/images/projets/ohmyfood1.webp', './src/images/projets/ohmyfood2.webp', './src/images/projets/sophie-bluel.webp', './src/images/projets/sophie-bluel_2.webp', './src/images/projets/sophie-bluel_3.webp', './src/images/projets/kasa_1', './src/images/projets/kasa_3.webp', './src/images/projets/booki_1.webp', './src/images/projets/booki_2.webp',],
+            description: 'Développement web'
+        },
+    };
 
-    function openModal(index) {
+    // Fonction pour ouvrir la modale avec un ensemble d'images
+    function openModal(images, description, index) {
+        currentImages = images;
         currentIndex = index;
-        const item = galleryItems[currentIndex];
-        const type = item.getAttribute('data-type');
-        const src = item.getAttribute('data-src');
-        const description = item.getAttribute('data-description');
-
-        if (type === 'image') {
-            modalImage.src = src;
-            modalImage.style.display = 'block';
-            modalVideo.style.display = 'none';
-        } else if (type === 'video') {
-            modalVideo.src = src;
-            modalVideo.style.display = 'block';
-            modalImage.style.display = 'none';
-        }
-
         modalDescription.textContent = description;
-        modal.style.display = 'flex';
+        showImage(currentIndex);
+        modal.style.display = 'block';
     }
 
-    function closeModal() {
+    // Fonction pour afficher l'image actuelle dans la modale
+    function showImage(index) {
+        modalImage.src = currentImages[index];
+        modalDescription.textContent = `Image ${index + 1} sur ${currentImages.length}`;
+    }
+
+    // Fonction pour fermer la modale
+    function closeModalWindow() {
         modal.style.display = 'none';
-        modalImage.src = '';
-        modalVideo.src = '';
     }
 
-    function showNext() {
-        currentIndex = (currentIndex + 1) % galleryItems.length;
-        openModal(currentIndex);
-    }
-
+    // Fonction pour afficher l'image précédente
     function showPrev() {
-        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        openModal(currentIndex);
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        showImage(currentIndex);
     }
 
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            openModal(index);
-        });
+    // Fonction pour afficher l'image suivante
+    function showNext() {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        showImage(currentIndex);
+    }
+
+    // Ajout des événements de clic sur les items de la galerie
+    galleryItems.forEach((item) => {
+        const projectKey = item.getAttribute('data-project');
+        const project = projects[projectKey];
+        if (project) {
+            item.addEventListener('click', () => openModal(project.images, project.description, 0));
+        }
     });
 
-    closeBtn.addEventListener('click', closeModal);
-    nextBtn.addEventListener('click', showNext);
-    prevBtn.addEventListener('click', showPrev);
+    // Ajout des événements de clic pour la fermeture de la modale et la navigation
+    closeModal.addEventListener('click', closeModalWindow);
+    prevButton.addEventListener('click', showPrev);
+    nextButton.addEventListener('click', showNext);
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
+    // Fermer la modale en cliquant à l'extérieur de l'image
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModalWindow();
         }
     });
 });
