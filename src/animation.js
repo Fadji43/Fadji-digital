@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modal-image');
+    const modalVideo = document.getElementById('modal-video');
     const modalDescription = document.getElementById('modal-description');
     const closeModal = document.querySelector('.modal .close');
     const prevButton = document.querySelector('.modal-navigation .prev');
@@ -197,64 +198,78 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentImages = [];
     let currentIndex = 0;
 
-    //  tableau des projets avec leurs images, description
+    // Tableau des projets avec leurs images et description
     const projects = {
         project1: {
-            images: ['./src/images/photo/realisation/9_11zon.webp', './src/images/photo/realisation/49_11zon.webp', './src/images/photo/realisation/78.webp' ],
+            images: ['./src/images/photo/realisation/9_11zon.webp', './src/images/photo/realisation/49_11zon.webp', './src/images/photo/realisation/78.webp', './src/images/photo/realisation/IMG_6555.webp', './src/images/photo/realisation/IMG_6555.webp', './src/images/photo/realisation/IMG_6101.webp', './src/images/photo/realisation/IMG-6546.webp', './src/images/photo/realisation/mariage1.webp'],
             description: 'Photo portrait',
         },
         project2: {
-            images: ['./src/images/photo/realisation/230.webp', './src/images/photo/realisation/245.webp', './src/images/photo/realisation/IMG_6220.webp', './src/images/photo/realisation/IMG_6273.webp', './src/images/photo/realisation/IMG_6253.webp', './src/images/photo/realisation/IMG_6238.webp', './src/images/photo/realisation/behourd.webp', './src/images/photo/realisation/IMG_0137.webp' ],
-            description: 'Photo sportive & événementielle'
+            images: ['./src/images/photo/realisation/230.webp', './src/images/photo/realisation/245.webp', './src/images/photo/realisation/IMG_6220.webp', './src/images/photo/realisation/IMG_6273.webp', './src/images/photo/realisation/IMG-6253.webp', './src/images/photo/realisation/IMG-6238.webp', './src/images/photo/realisation/behourd.webp', './src/images/photo/realisation/IMG_0137.webp'],
+            description: 'Photo sportive & événementielle',
         },
         project3: {
             images: ['./src/images/video/pub-colo.mp4'],
             description: 'Vidéo',
         },
         project4: {
-            images: ['./src/images/photo/aprem_game_11zon', './src/images/photo/chasseOoeuf_11zon.webp', './src/images/photo/realisation/compet_amicale_3.02_V4.webp', './src/images/photo/realisation/compet_amicale_2023_2.webp', './src/images/photo/realisation/country_line_4_11zon.webp' ],
-            description: 'Affiche'
+            images: ['./src/images/photo/realisation/aprem_game_11zon.webp', './src/images/photo/realisation/chasseOoeuf_11zon.webp', './src/images/photo/realisation/compet_amicale_3.02_V4.webp', './src/images/photo/realisation/compet_amicale_2023_2.webp', './src/images/photo/realisation/country_line_4_11zon.webp'],
+            description: 'Affiche',
         },
         project5: {
-            images: ['./src/images/photo/IMG_9278', './src/images/projets/IMG_9284.webp', './src/images/projets/439437204_326418840545592_3046911930542564764_n_11zon.webp'],
+            images: ['./src/images/photo/realisation/IMG_9278.webp', './src/images/photo/realisation/IMG_9284.webp', './src/images/photo/realisation/439437204_326418840545592_3046911930542564764_n_11zon.webp'],
             description: 'Publicité',
         },
         project6: {
-            images: ['./src/images/projets/ohmyfood1.webp', './src/images/projets/ohmyfood2.webp', './src/images/projets/sophie-bluel.webp', './src/images/projets/sophie-bluel_2.webp', './src/images/projets/sophie-bluel_3.webp', './src/images/projets/kasa_1', './src/images/projets/kasa_3.webp', './src/images/projets/booki_1.webp', './src/images/projets/booki_2.webp',],
-            description: 'Développement web'
+            images: ['./src/images/projets/ohmyfood_1.webp', './src/images/projets/ohmyfood_2.webp', './src/images/projets/sophie-bluel.webp', './src/images/projets/sophie-bluel_2.webp', './src/images/projets/sophie-bluel_3.webp', './src/images/projets/kasa_1.webp', './src/images/projets/kasa_3.webp', './src/images/projets/booki_1.webp', './src/images/projets/booki_2.webp'],
+            description: 'Développement web',
         },
     };
 
-    // Fonction pour ouvrir la modale avec un ensemble d'images
-    function openModal(images, description, index) {
-        currentImages = images;
+    // Fonction pour ouvrir la modale avec un ensemble d'images ou une vidéo
+    function openModal(media, description, index) {
+        currentImages = media;
         currentIndex = index;
         modalDescription.textContent = description;
-        showImage(currentIndex);
+        showMedia(currentIndex);
         modal.style.display = 'block';
     }
 
-    // Fonction pour afficher l'image actuelle dans la modale
-    function showImage(index) {
-        modalImage.src = currentImages[index];
+    // Fonction pour afficher l'image ou la vidéo actuelle dans la modale
+    function showMedia(index) {
+        const media = currentImages[index];
+        if (media.endsWith('.mp4')) {
+            modalVideo.src = media;
+            modalVideo.style.display = 'block';
+            modalImage.style.display = 'none';
+        } else {
+            modalImage.src = media;
+            modalImage.style.display = 'block';
+            modalVideo.style.display = 'none';
+        }
         modalDescription.textContent = `Image ${index + 1} sur ${currentImages.length}`;
     }
 
     // Fonction pour fermer la modale
     function closeModalWindow() {
         modal.style.display = 'none';
+        // Stoppe la vidéo si elle est en cours de lecture
+        if (modalVideo.style.display === 'block') {
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+        }
     }
 
-    // Fonction pour afficher l'image précédente
+    // Fonction pour afficher l'image ou la vidéo précédente
     function showPrev() {
         currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-        showImage(currentIndex);
+        showMedia(currentIndex);
     }
 
-    // Fonction pour afficher l'image suivante
+    // Fonction pour afficher l'image ou la vidéo suivante
     function showNext() {
         currentIndex = (currentIndex + 1) % currentImages.length;
-        showImage(currentIndex);
+        showMedia(currentIndex);
     }
 
     // Ajout des événements de clic sur les items de la galerie
@@ -277,4 +292,16 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModalWindow();
         }
     });
+
+    // Gestion des événements du clavier
+    document.addEventListener('keydown', (event) => {
+        if (modal.style.display === 'block') { // Vérifie si le modal est ouvert
+            if (event.key === 'ArrowRight') {
+                showNext();
+            } else if (event.key === 'ArrowLeft') {
+                showPrev();
+            }
+        }
+    });
 });
+
