@@ -12,32 +12,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Walter+Turncoat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="./src/animation.js"></script>
+    <script src="./src/form.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="top-header">
+            <img class="saturne" src="./src/images/accueil/planete_det.png">
             <div class="nav">   
                 <ul> 
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="#presta">Prestation</a></li>
                     <li><a href="#about">Qui suis-je</a></li>
                     <li><a href="#contact">Me Contacter</a></li>
+                    <li>
+                        <a href="https://www.instagram.com/votreprofil" target="_blank">
+                        <img  class="reseau"src="./src/images/accueil/Instagram_icon.png.webp" alt="Instagram">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/votreprofil" target="_blank">
+                        <img class="reseau" src="./src/images/accueil/Facebook.png.webp" alt="Facebook">
+                        </a>
+                    </li>
                 </ul>
-            </div>
-            <div class="social-links">
-                <a href="https://www.instagram.com/votreprofil" target="_blank">
-                    <img src="./src/images/icons/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.facebook.com/votreprofil" target="_blank">
-                    <img src="./src/images/icons/facebook.png" alt="Facebook">
-                </a>
             </div>
         </nav>
     </header>
     <main>
         <section class="banner" id="banner">
-            <img class="logo" src="./src/images/fadji_logo.png" alt="logo Fadji">
+            <img class="logo" src="./src/images/accueil/fadji_logo.png" alt="logo Fadji">
             <div class="typewriter-container">
                 <div class="typewriter">
                     <p>Capturez, créez, codez : du clic au code !</p>
@@ -53,56 +58,39 @@
                 <h4 class="bubble-need">Conception graphique</h4>
                 <h4 class="bubble-need">Vidéo</h4>
             </div>
+            <h2 class="title-dancing hang">Alliant développement web, design graphique, et photographie je mets mon savoir-faire à votre service pour transformer vos idées en réalisations concrètes et esthétiques.</h2>
         </section>
-           <section class="hang">
-            <h2 class="title-dancing">De l'idée à la réalisation, je suis votre partenaire digital</h2>
-            <p>Alliant développement web, design graphique, et photographie je mets mon savoir-faire à votre service pour transformer vos idées en réalisations concrètes et esthétiques.</p>
-            <p><strong>Je vous accompagne à chaque étape du processus de création d’un projet web</strong>: conseil graphique, développement technique Front & Back , optimisation du parcours utilisateur, mais aussi la mise en place d’un référencement optimal et la gestion de la maintenance.</p>
-            <h3 class="title-dancing">Donnez vie à vos idées avec une touche professionnelle et personnalisée.</h3>
-        </section>       
         <section id="presta">
             <div class="domain">
                 <div class="bloc_domain" data-categorie="devweb">
                     <i class="fa-solid fa-code icone-cat"></i>
-                    <h3>Développement web</h3>
+                    <h4 class="title-domain">Développement web</h4>
                     <p class="details">En détails</p>
                     <i class="fa-solid fa-chevron-down chevron-down"></i>
                 </div>
                 <div class="bloc_domain" data-categorie="design">
                     <i class="fa-solid fa-pencil icone-cat"></i>
-                    <h3>Design</h3>
+                    <h4 class="title-domain">Design</h4>
                     <p class="details">En détails</p>
                     <i class="fa-solid fa-chevron-down chevron-down"></i>
                 </div>
                 <div class="bloc_domain" data-categorie="photo">
                     <i class="fa-solid fa-photo-film icone-cat"></i>
-                    <h3>Photographie & vidéo</h3>
+                    <h4 class="title-domain">Photographie & vidéo</h4>
                     <p class="details">En détails</p>
                     <i class="fa-solid fa-chevron-down chevron-down"></i>
                 </div>
             </div>
         </section>    
         <section id="devweb" class="devweb categorie">
-            <div class="info-presta">
-                <div class="objectifs">
-                    <img class="img-obj" src="./src/images/photo/surmesure2.png" alt="rouage">
-                    <h3 class="title-obj">Site sur-mesure</h3>
-                </div>
-                <div class="objectifs">
-                    <img  class="img-obj" src="./src/images/photo/maintenance2.png" alt="doigt de bébé">
-                    <h3 class="title-obj">Maintenance et évolutions</h3>
-                </div>
+            <div class="text-code">
+                <i class="fa-solid fa-chevron-left code"></i>
+                <img class ="img-dev" src="./src/images/photo/dev.png">
+                <i class="fa-solid fa-chevron-right code"></i>
             </div> 
-                <div class="text-obj">
-                    <h3 class="title-dancing">Je vous propose des solutions web de qualité supérieure qui répondent à vos besoins spécifiques et dépassent vos attentes. </h3>
-                    <p><strong>Je conçois des interfaces utilisateur intuitives et conviviales</strong> pour garantir une expérience utilisateur simplifiée et agréable. Mon objectif est de créer des sites web où chaque interaction est fluide et naturelle, facilitant ainsi la navigation et l'utilisation de votre site.</p>
-                    <p><strong>La structure de vos projets sera légère et modulable,</strong> assurant un rendu visuel optimal. Cette approche permet une performance accrue et une flexibilité qui facilite les modifications futures, garantissant que votre site reste à jour avec les dernières tendances et technologies.</p>
-                    <p><strong>J'intègre systématiquement un design responsive,</strong> ce qui signifie que votre site sera parfaitement adapté à toutes les tailles d'écran. Que vos utilisateurs accèdent à votre site depuis un ordinateur de bureau, une tablette ou un smartphone, ils bénéficieront toujours d'une expérience visuelle et fonctionnelle optimale.</p>
-                    <p><strong>Le référencement (SEO) est une priorité dans mes projets.</strong> J'optimise votre site pour les moteurs de recherche afin de garantir une meilleure visibilité en ligne. Cette approche vous aide à attirer davantage de visiteurs et à augmenter votre notoriété sur le web.</p>
-                    <p>Mon engagement ne s'arrête pas à la mise en ligne de votre site.<strong>Je reste à votre disposition pour les mises à jour et modifications en fonction de vos besoins.</strong> Qu'il s'agisse d'ajouter de nouvelles fonctionnalités, de mettre à jour du contenu ou d'effectuer des ajustements techniques, je suis là pour vous accompagner dans l'évolution de votre site.</p>
-                </div>
-                <p>Je reste à votre disposition pour les mises à jour et modification en fonction de vos besoins.</p>
-            <h2 class="title-dancing">Etapes de votre projet</h2>
+            <div class="intro-obj">
+                <h3 class="title-dancing"><strong>Je vous accompagne à chaque étape du processus de création d’un projet web</strong>: conseil graphique, développement technique Front & Back , optimisation du parcours utilisateur, mais aussi la mise en place d’un référencement optimal et la gestion de la maintenance.</h3>
+                <h2 class="title-obj">Etapes de votre projet</h2>
                 <div class="projet">
                     <div class="etape">
                         <div class="circle-white-dashed"></div>
@@ -128,120 +116,99 @@
                         <div class="circle-white-dashed"></div>
                         <p>Mise à jour et maintenance</p>
                     </div>
-                   </div> 
+                </div> 
+                <div class="text_descript">
+                    <p><strong>Je conçois des interfaces utilisateur intuitives et conviviales</strong> pour garantir une expérience utilisateur simplifiée et agréable. Mon objectif est de créer des sites web où chaque interaction est fluide et naturelle, facilitant ainsi la navigation et l'utilisation de votre site.</p>
+                    <p><strong>La structure de vos projets sera légère et modulable,</strong> assurant un rendu visuel optimal. Cette approche permet une performance accrue et une flexibilité qui facilite les modifications futures, garantissant que votre site reste à jour avec les dernières tendances et technologies.</p>
+                    <p><strong>J'intègre systématiquement un design responsive,</strong> ce qui signifie que votre site sera parfaitement adapté à toutes les tailles d'écran. Que vos utilisateurs accèdent à votre site depuis un ordinateur de bureau, une tablette ou un smartphone, ils bénéficieront toujours d'une expérience visuelle et fonctionnelle optimale.</p>
+                    <p><strong>Le référencement (SEO) est une priorité dans mes projets.</strong> J'optimise votre site pour les moteurs de recherche afin de garantir une meilleure visibilité en ligne. Cette approche vous aide à attirer davantage de visiteurs et à augmenter votre notoriété sur le web.</p>
+                    <p>Mon engagement ne s'arrête pas à la mise en ligne de votre site.<strong>Je reste à votre disposition pour les mises à jour et modifications en fonction de vos besoins.</strong> Qu'il s'agisse d'ajouter de nouvelles fonctionnalités, de mettre à jour du contenu ou d'effectuer des ajustements techniques, je suis là pour vous accompagner dans l'évolution de votre site.</p>
+                    <p>Je reste à votre disposition pour les mises à jour et modification en fonction de vos besoins.</p>
+                </div>
+            </div>
             <div class="audit">
-                <h2 class="title-dancing">L'audit c'est quoi ?</h2>
-                <p class="text-obj">Un audit web est une <strong>évaluation complète d'un site ou d'une application web pour identifier ses forces et ses faiblesses.</strong> Il examine :</p>
-                <p class="text-obj"><strong>la performance</strong> : vitesse de chargement, optimisation des ressources, </p>
-                <p class="text-obj"><strong>la sécurité</strong> (vulnérabilités, certificat SSL),</p>
-                <p class="text-obj"><strong>le SEO</strong> (mots-clés, balises meta),</p>
-                <p class="text-obj"><strong>l'accessibilité</strong> (conformité aux normes, navigation),</p>
-                <p class="text-obj"><strong>le contenu</strong> (qualité et cohérence),</p>
-                <p class="text-obj"><strong>l'expérience utilisateur</strong> (design responsive, interactivité).</p>
-                <p class="text-obj">L'objectif est d'améliorer continuellement le site, d'assurer sa conformité, de prévenir les problèmes potentiels, et <strong>d'optimiser son fonctionnement pour une meilleure expérience utilisateur et un meilleur référencement.</strong></p>
+                <h2 class="title-obj">L'audit c'est quoi ?</h2>
+                <p>Un audit web est une <strong>évaluation complète d'un site ou d'une application web pour identifier ses forces et ses faiblesses.</strong> Il examine :</p>
+                <div class="circle-container">
+                    <img src="./src/images/photo/circle-arrow.png" alt="Circle Arrow" class="circle-image">
+                    <div class="text-circle">
+                        <p class="text-odit"><strong>La performance</strong> : vitesse de chargement, optimisation des ressources</p>
+                        <p class="text-odit"><strong>La sécurité</strong> : vulnérabilités, certificat SSL</p>
+                        <p class="text-odit"><strong>Le contenu</strong> : qualité et cohérence</p>
+                        <p class="text-odit"><strong>L'accessibilité</strong> : conformité aux normes, navigation</p>
+                        <p class="text-odit"><strong>SEO</strong>: mots-clés, balises meta</p>
+                        <p class="text-odit"><strong>L'expérience utilisateur</strong> : design responsive, interactivité</p>
+                    </div>
+                </div>                
+                <p>L'objectif est d'améliorer continuellement le site, d'assurer sa conformité, de prévenir les problèmes potentiels, et <strong>d'optimiser son fonctionnement pour une meilleure expérience utilisateur et un meilleur référencement.</strong></p>
             </div> 
         </section>
         <section id="design" class="design categorie">
-            <h2 class="title-dancing" style="text-align: center; display: block;">Des designs qui captivent l'œil et l'imagination.</h2>
-            <div class="info-presta">
-                <div class="objectifs">
-                    <img class="img-obj" src="./src/images/photo/identite-visuelle2.png" alt="empreinte chien">
-                    <h3 class="title-obj">Identité visuelle</h3>
-                </div>
-                <div class="objectifs">
-                    <img class="img-obj" src="./src/images/photo/conception2.png" alt="ampoule et peinture">
-                    <h3 class="title-obj">Conception graphique et mise en page</h3>
-                </div>
-                <div class="objectifs">
-                    <img class="img-obj" src="./src/images/photo/support2.png" alt="journaux">
-                    <h3 class="title-obj">Supports imprimés</h3>
-                </div>
-            </div> 
-            <div class="text-obj">
-                <p>Cela passe par la <strong>création d’une identité visuelle,</strong> comme un logo, qui reflète l'essence de votre marque et attire l'attention de votre public cible. <strong> prends en charge la conception graphique et la mise en page de divers supports,</strong> tels que : affiches, brochures, plaquettes, flyers, espaces publicitaires, et bien plus encore.</p>
-                <P>Chaque support est conçu avec soin pour captiver et informer votre audience de manière efficace. Grâce à une approche personnalisée et à une attention particulière aux détails, je m'assure que <strong>chaque élément visuel communique votre message de manière claire et cohérente.</strong></p>
+            <div class="text-design_photo">
+                <img src="./src/images/photo/maquette-design.png" class="photo-design">
+                <div class="text_descript">
+                    <h2 class="title-dancing" style="text-align: center; display: block;">Des designs qui captivent l'œil et l'imagination.</h2>
+                    <p>Cela passe par la <strong>création d’une identité visuelle,</strong> comme un logo, qui reflète l'essence de votre marque et attire l'attention de votre public cible.</p>
+                    <p><strong> Je prends en charge la conception graphique et la mise en page de divers supports,</strong> tels que : affiches, brochures, plaquettes, flyers, espaces publicitaires, et bien plus encore.</p> 
+                    <p>Chaque support est conçu avec soin pour captiver et informer votre audience de manière efficace. Grâce à une approche personnalisée et à une attention particulière aux détails, je m'assure que <strong>chaque élément visuel communique votre message de manière claire et cohérente.</strong></p>
+                </div>    
             </div>
         </section>
         <section id="photo" class="photo categorie">
             <h2 class="title-dancing" style="text-align: center; display: block;">Créez des souvenirs visuels qui laissent une empreinte.</h2>
-            <div class="info-presta">
-                <div class="objectifs">
-                    <img class="img-obj" src="./src/images/photo/portrai2.png" alt="portrait couple">
-                    <h3 class="title-obj">Portrait</h3>
-                </div>
-                <div class="objectifs">
-                    <img  class="img-obj" src="./src/images/photo/evenement2.png" alt="spectacle cirque">
-                    <h3 class="title-obj">Evénement</h3>
-                </div>
-                <div class="objectifs">
-                    <img class="img-obj" src="./src/images/photo/publicitaire2.png" alt="Siga Pita ">
-                    <h3 class="title-obj">Publicitaire</h3>
-                </div>
+            <div class="text-design_photo">
+                <img class="hand" src="./src/images/photo/main.png" alt="objectif sur un portrait de fraterie"> 
+                <div class="text_descript">
+                    <p>La photographie est, pour moi, une passion et un mode de communication. <strong>Chaque séance photo est une nouvelle opportunité de capturer des moments uniques et de les transformer en souvenirs durables.</strong></p>
+                    <p>Que vous souhaitiez immortaliser un moment seul(e), en duo ou en groupe. La flexibilité est au cœur de mon approche pour créer l'ambiance parfaite.</p>
+                    <p>En intérieur, dans un décor pour un rendu intimiste, ou en extérieur, où la nature offre un cadre magnifique et diversifié, idéal pour des photos vivantes et spontanées. Je saisis des instants de joie et d’émotions, pour <strong>retranscrire la complicité, l’authenticité, ou même aller à la découverte de soi en toute intimité.</strong></p>
+                    <p><strong>Parce que vous êtes uniques</strong>, je m’adapte à vos demandes et à vos besoins pour que la séance photo puisse créer des souvenirs précieux. </p>
+                </div>   
             </div>
-            <div class="text-obj">       
-                <p>La photographie est, pour moi, une passion et un mode de communication. <strong>Chaque séance photo est une nouvelle opportunité de capturer des moments uniques et de les transformer en souvenirs durables.</strong></p>
-                <p>Que vous souhaitiez immortaliser un moment seul(e), en duo ou en groupe. La flexibilité est au cœur de mon approche pour créer l'ambiance parfaite.</p>
-                <p>En intérieur, dans un décor pour un rendu intimiste, ou en extérieur, où la nature offre un cadre magnifique et diversifié, idéal pour des photos vivantes et spontanées. Je saisis des instants de joie et d’émotions, pour <strong>retranscrire la complicité, l’authenticité, ou même aller à la découverte de soi en toute intimité.</strong></p>
-                <p><strong>Parce que vous êtes uniques</strong>, je m’adapte à vos demandes et à vos besoins pour que la séance photo puisse créer des souvenirs précieux. </p>
-                </div>
-            </div>
-        </section>
-        <section id="about">
-            <h2>Qui suis-je</h2>	
-            <div class="about-me">
-                <img class="portrait" src="src/images/moi5.png" alt="portrait">
-                <div class="about-me__introduction">
-                    <h3 class="title-dancing">Bienvenue, je suis Fanny Gimenez et je suis passionnée par la photographie, la vidéo, le design et le développement web, je vous propose des services de qualité pour répondre à tous vos besoins en communication digitale.</h3>
-                    <p>Attirée par la photographie depuis toujours, j'ai à cœur de retranscrire les émotions et les souvenirs qui marquent l'histoire de chacun. Que ce soit pour des séances de maternité, des mariages, des portraits, des spectacles, des reportages ou divers événements, <strong>je mets mon expertise à votre service pour capturer des moments uniques et intemporels.</strong></p>
-                    <p>Mon parcours m'a naturellement conduite vers le journalisme, où j'ai perfectionné mes compétences en rédaction. En parallèle, ma formation en design m'a permis de maîtriser la création de visuels percutants : affiches, espaces publicitaires, bulletins et plus encore.</p>
-                    <p>Toujours en quête de nouvelles compétences, le monde du web m'a rapidement fascinée. Après une formation approfondie en développement et intégration web, j'ai découvert un univers vaste et passionnant. <strong>Je vous propose des solutions web sur mesure,</strong> performantes, optimisées pour offrir une expérience utilisateur optimale.</p>
-                    <p>Récemment, ma curiosité m'a menée vers le monde de la vidéo.<strong>En combinant mes compétences en photographie et en montage vidéo,</strong> je crée des récits visuels dynamiques qui captivent et engagent.</p>
-                    <p>Je souhaite vous offrir une approche intégrée, allant de la conception à la réalisation, pour tous vos besoins en communication digitale. Ensemble, donnons vie à vos idées et réalisons vos projets avec créativité et précision.<strong>Ensemble, donnons vie à vos idées.</strong></p>
-                    <h3 class="title-dancing">N'hésitez pas à me contacter pour discuter de vos besoins et découvrir comment je peux vous aider à les réaliser.</h3>
-                </div>
-            </div>
+            <h3 class="title-dancing">Donnez vie à vos idées avec une touche professionnelle et personnalisée.</h3>
         </section>
         <section class="work">
-            <div class="paper-plane" id="paper-plane"></div>
-            <div class="software">
-                <h2>Mes Compétences</h2>
-                <div class="skill">
-                    <h5>HTML / CSS</h5>
-                    <div class="bar"><div class="level" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Javascript</h5>
-                    <div class="bar"><div class="level" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>React</h5>
-                    <div class="bar"><div class="level" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Jquery</h5>
-                    <div class="bar"><div class="level" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Photoshop</h5>
-                    <div class="bar"><div class="level" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Indesign</h5>
-                    <div class="bar"><div class="level" style="width: 70%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Illustrator</h5>
-                    <div class="bar"><div class="level" style="width: 60%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Quark XPress</h5>
-                    <div class="bar"><div class="level" style="width: 50%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h5>Première Pro</h5>
-                    <div class="bar"><div class="level" style="width: 90%;"></div></div>
-                </div>
-            </div> 
+            <div class="competence">
+                <div class="software">
+                    <h2>Mes Compétences</h2>
+                    <div class="skill">
+                        <h5>HTML / CSS</h5>
+                        <div class="bar"><div class="level" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Javascript</h5>
+                        <div class="bar"><div class="level" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>React</h5>
+                        <div class="bar"><div class="level" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Jquery</h5>
+                        <div class="bar"><div class="level" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Photoshop</h5>
+                        <div class="bar"><div class="level" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Indesign</h5>
+                        <div class="bar"><div class="level" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Illustrator</h5>
+                        <div class="bar"><div class="level" style="width: 60%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Quark XPress</h5>
+                        <div class="bar"><div class="level" style="width: 50%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <h5>Première Pro</h5>
+                        <div class="bar"><div class="level" style="width: 90%;"></div></div>
+                    </div>
+                </div> 
+            </div>
             <div class="réalisations">
                 <h2>Mes réalisations</h2>
                 <div class="gallery">
@@ -254,11 +221,11 @@
                         <p class="description">Photo sportive & événementielle</p>
                     </div>
                     <div class="gallery-item" data-project="project3">
-                        <img src="./src/images/photo/realisation//dans-africaine_11zon.webp" alt="colonie de danse">
+                        <img src="./src/images/photo/realisation/dans-africaine_11zon.webp" alt="colonie de danse">
                         <p class="description">Vidéo</p>
                     </div>
                     <div class="gallery-item" data-project="project4">
-                        <img src="./src/images/projets/kasa.webp" alt="Kasa">
+                        <img src="./src/images/photo/realisation/aprem_game_11zon.webp" alt="game zone">
                         <p class="description">Affiche</p>
                     </div>
                     <div class="gallery-item" data-project="project5">
@@ -266,7 +233,7 @@
                         <p class="description">Publicité</p>
                     </div>
                     <div class="gallery-item" data-project="project6">
-                        <img src="./src/images/projets/argentbank1.webp" alt="Argentbank">
+                        <img src="./src/images/photo/projets/argentbank1.webp" alt="Argentbank">
                         <p class="description">développement web</p>
                     </div>
                     <div class="modal" id="modal">
@@ -282,24 +249,46 @@
                         </div>
                     </div>
                 </div> 
-            </div>      
-        </section>  
+            </div>       
+        </section> 
+        <section id="about">
+            <h2>Qui suis-je</h2>	
+            <div class="about-me">
+                <div class="about-me__img">
+                    <img class="portrait" src="src/images/accueil/moi5.png" alt="portrait">
+                    <h3 class="portrait">N'hésitez pas à me contacter pour discuter de vos besoins et découvrir comment je peux vous aider à les réaliser.</h3>
+                 </div>
+                <div class="about-me__introduction">
+                    <h3 class="title-dancing">Bienvenue, je suis Fanny Gimenez et je suis passionnée par la photographie, la vidéo, le design et le développement web, je vous propose des services de qualité pour répondre à tous vos besoins en communication digitale.</h3>
+                    <p>Attirée par la photographie depuis toujours, j'ai à cœur de retranscrire les émotions et les souvenirs qui marquent l'histoire de chacun. Que ce soit pour des séances de maternité, des mariages, des portraits, des spectacles, des reportages ou divers événements, <strong>je mets mon expertise à votre service pour capturer des moments uniques et intemporels.</strong></p>
+                    <p>Mon parcours m'a naturellement conduite vers le journalisme, où j'ai perfectionné mes compétences en rédaction. En parallèle, ma formation en design m'a permis de maîtriser la création de visuels percutants : affiches, espaces publicitaires, bulletins et plus encore.</p>
+                    <p>Toujours en quête de nouvelles compétences, le monde du web m'a rapidement fascinée. Après une formation approfondie en développement et intégration web, j'ai découvert un univers vaste et passionnant. <strong>Je vous propose des solutions web sur mesure,</strong> performantes, optimisées pour offrir une expérience utilisateur optimale.</p>
+                    <p>Récemment, ma curiosité m'a menée vers le monde de la vidéo.<strong> En combinant mes compétences en photographie et en montage vidéo,</strong> je crée des récits visuels dynamiques qui captivent et engagent.</p>
+                    <p>Je souhaite vous offrir une approche intégrée, allant de la conception à la réalisation, pour tous vos besoins en communication digitale. Ensemble, donnons vie à vos idées et réalisons vos projets avec créativité et précision.<strong>Ensemble, donnons vie à vos idées.</strong></p>
+                    
+                </div>
+            </div>
+        </section> 
     </main>
 <footer id="contact">
     <div class="form-container">
       <div class="form-column">
         <h2>Me contacter</h2>
-        <p> N’hésitez pas à m’écrire !</p>
-        <img class="form-img" src="./src/images/fusee.png" id="rocket" alt="fusée">
-      </div>
+        <div class="form-rocket-mess">
+            <img class="form-img" src="./src/images/accueil/fusee-det.png" id="rocket" alt="fusée">
+            <p> N’hésitez pas à m’écrire !</p>
+        </div>
+        </div>
       <div class="form-column">
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="1" required></textarea>
-        <button type="submit">Envoyer</button>
+        <form id="contact-form">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="user_name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="user_email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
       </div>
     </div>
     <p class="copyright">© 2024 Gimenez Fanny, Tous droits réservés</p>

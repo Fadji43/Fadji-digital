@@ -18,65 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     handleScroll();
 });
 
-/***************bulle***************/
-document.addEventListener('DOMContentLoaded', () => {
-    const bubbles = document.querySelectorAll('.bubble-need');
-
-    bubbles.forEach(bubble => {
-        bubble.addEventListener('mouseenter', createSmallBubbles);
-    });
-
-    function createSmallBubbles(event) {
-        const bubble = event.target;
-        for (let i = 0; i < 5; i++) {
-            const smallBubble = document.createElement('div');
-            smallBubble.classList.add('small-bubble');
-            smallBubble.style.left = `${Math.random() * 100}%`;
-            smallBubble.style.top = `${Math.random() * 100}%`;
-            bubble.appendChild(smallBubble);
-
-            setTimeout(() => {
-                smallBubble.remove();
-            }, 2000);
-        }
-    }
-});
-/*********carroussel************/
-/*document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-        const container = document.querySelector('.carousel-container');
-        const totalSlides = slides.length;
-        if (index >= totalSlides) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = totalSlides - 1;
-        } else {
-            currentIndex = index;
-        }
-        container.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    nextButton.addEventListener('click', () => {
-        showSlide(currentIndex + 1);
-    });
-
-    prevButton.addEventListener('click', () => {
-        showSlide(currentIndex - 1);
-    });
-
-    // Auto-slide functionality (optional)
-    setInterval(() => {
-        showSlide(currentIndex + 1);
-    }, 3000);
-});
-*/
-
-
 /***********projet-dev***********/
 document.addEventListener('DOMContentLoaded', function() {
     const circles = document.querySelectorAll('.circle-white-dashed');
@@ -106,8 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         circle.parentElement.addEventListener('mouseleave', stopCircleAnimation);
     });
 });
-
-
 
 /**************presta************/
 document.addEventListener('DOMContentLoaded', function() {
@@ -151,30 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-/*****************avion***************/
-document.addEventListener('DOMContentLoaded', function() {
-    const paperPlane = document.getElementById('paper-plane');
-    const projetSection = document.querySelector('.projet');
-
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    function checkAnimation() {
-        if (isElementInViewport(projetSection)) {
-            paperPlane.style.animationPlayState = 'running';
-        }
-    }
-
-    window.addEventListener('scroll', checkAnimation);
-    checkAnimation(); 
-});
 
 /***********compétences*********/
 document.addEventListener('DOMContentLoaded', () => {
@@ -196,41 +111,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.querySelector('.modal-navigation .prev');
     const nextButton = document.querySelector('.modal-navigation .next');
     let currentImages = [];
+    let currentDescriptions = [];
     let currentIndex = 0;
 
-    // Tableau des projets avec leurs images et description
+    // Tableau des projets avec leurs images et descriptions
     const projects = {
         project1: {
             images: ['./src/images/photo/realisation/9_11zon.webp', './src/images/photo/realisation/49_11zon.webp', './src/images/photo/realisation/78.webp', './src/images/photo/realisation/IMG_6555.webp', './src/images/photo/realisation/IMG_6555.webp', './src/images/photo/realisation/IMG_6101.webp', './src/images/photo/realisation/IMG-6546.webp', './src/images/photo/realisation/mariage1.webp'],
-            description: 'Photo portrait',
+            descriptions: ['Portait de fraterie', 'Photographie de famille', 'Portrait parent-enfant', 'Portrait', 'Photo portrait 5', 'Portrait', 'Photographie de couple', 'Photographie en duo'],
         },
         project2: {
             images: ['./src/images/photo/realisation/230.webp', './src/images/photo/realisation/245.webp', './src/images/photo/realisation/IMG_6220.webp', './src/images/photo/realisation/IMG_6273.webp', './src/images/photo/realisation/IMG-6253.webp', './src/images/photo/realisation/IMG-6238.webp', './src/images/photo/realisation/behourd.webp', './src/images/photo/realisation/IMG_0137.webp'],
-            description: 'Photo sportive & événementielle',
+            descriptions: ['Gala de danse', 'public et danseur en osmose', 'Portrait de musicien', 'Portrait de musicien rythmé', 'Instant musique', 'Sourire de joie', 'combat de béhourd', 'affrontement médiéval'],
         },
         project3: {
             images: ['./src/images/video/pub-colo.mp4'],
-            description: 'Vidéo',
+            descriptions: ['Vidéo de la colonie danse qui s\'est édroulé à Chilhac et Goudet en juillet 2024. Les danseuses et danseurs ont occupé la scène pour le plaisir du public et la fête a duré au cours de la soirée'],
         },
         project4: {
-            images: ['./src/images/photo/realisation/aprem_game_11zon.webp', './src/images/photo/realisation/chasseOoeuf_11zon.webp', './src/images/photo/realisation/compet_amicale_3.02_V4.webp', './src/images/photo/realisation/compet_amicale_2023_2.webp', './src/images/photo/realisation/country_line_4_11zon.webp'],
-            description: 'Affiche',
+            images: ['./src/images/photo/realisation/aprem_game_11zon.webp', './src/images/photo/realisation/chasseOoeuf_11zon.webp', './src/images/photo/realisation/compet_amicale_3.02_V4.webp', './src/images/photo/realisation/country-line.png', './src/images/photo/realisation/compet_amicale_2023_2.webp'],
+            descriptions: ['Affiche Gaming organisée par l\'association La Clandestine', 'Affiche  de la chasse aux oeufs', 'Affiche de la compétition de danse qui s\'est tenu à Landos', 'Flyer pour une association de Line Dance', 'Affiche de la compétition amicale de danse en janvier 2023'],
         },
         project5: {
-            images: ['./src/images/photo/realisation/IMG_9278.webp', './src/images/photo/realisation/IMG_9284.webp', './src/images/photo/realisation/439437204_326418840545592_3046911930542564764_n_11zon.webp'],
-            description: 'Publicité',
+            images: ['./src/images/photo/realisation/IMG_9278.webp', './src/images/photo/realisation/IMG_9284.webp', './src/images/photo/realisation/439437204_326418840545592_3046911930542564764_n_11zon.webp', './src/images/photo/realisation/carte-rom.webp'],
+            descriptions: ['shooting pour Siga Pita, restaurant ', 'Des pitas en veux-tu en voilà !', 'photo utilisées pour l\'ouverture de Siga Pita', 'carte de visite pour un entrepreneur en coaching sportif'],
         },
         project6: {
-            images: ['./src/images/projets/ohmyfood_1.webp', './src/images/projets/ohmyfood_2.webp', './src/images/projets/sophie-bluel.webp', './src/images/projets/sophie-bluel_2.webp', './src/images/projets/sophie-bluel_3.webp', './src/images/projets/kasa_1.webp', './src/images/projets/kasa_3.webp', './src/images/projets/booki_1.webp', './src/images/projets/booki_2.webp'],
-            description: 'Développement web',
+            images: ['./src/images/photo/projets/ohmyfood_1.webp', './src/images/photo/projets/ohmyfood_2.webp', './src/images/photo/projets/sophie-bluel.webp', './src/images/photo/projets/sophie-bluel_2.webp', './src/images/photo/projets/sophie-bluel_3.webp', './src/images/photo/projets/kasa_1.webp', './src/images/photo/projets/kasa_3.webp'],
+            descriptions: ['Projet mené au cours de ma formation, pour le dévéloppement web pour la création d\'une application de commande et réservation en ligne de repas dans différents établissements', 'Projet mené au cours de ma formation, pour le dévéloppement web pour la création d\'une application de commande et réservation en ligne de repas dans différents établissements', 'Projet mené au cours de ma formation, pour le développement d\'un site internet pour une architecte d\'intérieur', 'Projet mené au cours de ma formation, pour le développement d\'un site internet pour une architecte d\'intérieur', 'Projet mené au cours de ma formation, pour le développement d\'un site intrenet pour une architecte d\'intérieur, avec la possibilité de se connecter à un compte utilisateur pour la modification du site', 'Projet mené au cours de ma formation, pour le développement d\'une application de réservation de logements et d\'activités', 'Présenation d\'un logement, pour réservation'],
         },
     };
 
-    // Fonction pour ouvrir la modale avec un ensemble d'images ou une vidéo
-    function openModal(media, description, index) {
+    // Fonction pour ouvrir la modale avec un ensemble d'images et descriptions
+    function openModal(media, descriptions, index) {
         currentImages = media;
+        currentDescriptions = descriptions;
         currentIndex = index;
-        modalDescription.textContent = description;
         showMedia(currentIndex);
         modal.style.display = 'block';
     }
@@ -238,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour afficher l'image ou la vidéo actuelle dans la modale
     function showMedia(index) {
         const media = currentImages[index];
+        const description = currentDescriptions[index];
         if (media.endsWith('.mp4')) {
             modalVideo.src = media;
             modalVideo.style.display = 'block';
@@ -247,13 +164,12 @@ document.addEventListener('DOMContentLoaded', function() {
             modalImage.style.display = 'block';
             modalVideo.style.display = 'none';
         }
-        modalDescription.textContent = `Image ${index + 1} sur ${currentImages.length}`;
+        modalDescription.textContent = description; // Affiche la description correspondante
     }
 
     // Fonction pour fermer la modale
     function closeModalWindow() {
         modal.style.display = 'none';
-        // Stoppe la vidéo si elle est en cours de lecture
         if (modalVideo.style.display === 'block') {
             modalVideo.pause();
             modalVideo.currentTime = 0;
@@ -277,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const projectKey = item.getAttribute('data-project');
         const project = projects[projectKey];
         if (project) {
-            item.addEventListener('click', () => openModal(project.images, project.description, 0));
+            item.addEventListener('click', () => openModal(project.images, project.descriptions, 0));
         }
     });
 
@@ -303,5 +219,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+});
+
+
+/************fusée************/
+document.addEventListener("DOMContentLoaded", () => {
+    // Sélectionner la section de contact
+    const contactSection = document.getElementById('contact');
+    
+    // Sélectionner la fusée
+    const rocket = document.getElementById('rocket');
+
+    // Fonction pour observer l'intersection
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Ajouter la classe pour déclencher l'animation
+                rocket.classList.add('animate-rocket');
+                
+                // Une fois l'animation déclenchée, on arrête d'observer
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    // Options de l'observer (ici on regarde si 50% de la section est visible)
+    const observerOptions = {
+        root: null,
+        threshold: 0.5
+    };
+
+    // Créer l'observer et observer la section de contact
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    observer.observe(contactSection);
 });
 
