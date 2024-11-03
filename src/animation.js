@@ -49,9 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**************presta************/
-document.addEventListener('DOMContentLoaded', function() {
-    const chevrons = document.querySelectorAll('.chevron-down');
-    const details = document.querySelectorAll('.details');
+document.addEventListener('DOMContentLoaded', function() { 
+    const blocsDomain = document.querySelectorAll('.bloc_domain'); // Sélectionne tous les blocs
 
     function toggleCategorie(categorieId, chevron) {
         const selectedCategorie = document.querySelector(`#${categorieId}`);
@@ -75,17 +74,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    chevrons.forEach(chevron => {
-        chevron.addEventListener('click', function() {
-            const categorieId = this.parentElement.getAttribute('data-categorie');
-            toggleCategorie(categorieId, this);
-        });
-    });
-
-    details.forEach(detail => {
-        detail.addEventListener('click', function() {
-            const chevron = this.nextElementSibling;
-            const categorieId = this.parentElement.getAttribute('data-categorie');
+    // Ajoute un événement de clic à chaque bloc_domain
+    blocsDomain.forEach(bloc => {
+        bloc.addEventListener('click', function() {
+            const categorieId = this.getAttribute('data-categorie');
+            const chevron = this.querySelector('.chevron-down'); // Trouve le chevron dans ce bloc
             toggleCategorie(categorieId, chevron);
         });
     });
@@ -94,10 +87,28 @@ document.addEventListener('DOMContentLoaded', function() {
 /***********compétences*********/
 document.addEventListener('DOMContentLoaded', () => {
     const levels = document.querySelectorAll('.level');
-    levels.forEach(level => {
-        const finalWidth = level.style.width;
-        level.style.setProperty('--final-width', finalWidth);
-    });
+    const competenceSection = document.querySelector('.software');
+
+    // Vérifiez que la section compétence est détectée et non nulle
+    if (competenceSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    levels.forEach(level => {
+                        const finalWidth = level.getAttribute('data-width');
+                        if (finalWidth) {
+                            level.style.width = finalWidth; 
+                        }
+                    });
+                    observer.unobserve(competenceSection); 
+                }
+            });
+        }, { threshold: 0.1 }); 
+
+        observer.observe(competenceSection);
+    } else {
+        console.error("Section .competence introuvable dans le DOM.");
+    }
 });
 
 /************gallery*************/
@@ -125,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             descriptions: ['Gala de danse', 'public et danseur en osmose', 'Portrait de musicien', 'Portrait de musicien rythmé', 'Instant musique', 'Sourire de joie', 'combat de béhourd', 'affrontement médiéval'],
         },
         project3: {
-            images: ['./src/images/video/pub-colo.mp4'],
+            images: ['./src/images/photo/video/pub-colo.mp4'],
             descriptions: ['Vidéo de la colonie danse qui s\'est édroulé à Chilhac et Goudet en juillet 2024. Les danseuses et danseurs ont occupé la scène pour le plaisir du public et la fête a duré au cours de la soirée'],
         },
         project4: {

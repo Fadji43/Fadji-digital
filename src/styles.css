@@ -13,6 +13,7 @@ h1 {
   
   h2 {
     font-size: 32px; 
+    font-family: "Walter Turncoat";
   }
   
   h3 {
@@ -24,7 +25,7 @@ h1 {
   }
 
   p {
-    font-size: 12px;
+    font-size: 16px;
   }
   
 /**************header*************/
@@ -147,68 +148,6 @@ h1 {
     }
 }
 
-/***********besoin*************/
-.title-need {
-    text-align: center;
-    margin: 280px 0 0 0;
-    font-family: "Dancing Script";
-    font-size: 50px;
-}
-
-.need {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    flex-wrap: wrap;
-    font-family: "Walter Turncoat";
-    font-weight: 400;
-    font-style: normal;
-    color: #A60C0C;
-}
-
-.bubble-need {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    position: relative;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    background: url(./images/accueil/fond-about.png);
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    color: white;
-}
-
-.bubble-need:hover {
-    transform: scale(1.20);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.bubble-need:nth-child(1) {
-    background-position: center;
-}
-
-.bubble-need:nth-child(2) {
-    background-position: top right;
-}
-
-.bubble-need:nth-child(3) {
-    background-position: center;
-}
-
-.bubble-need:nth-child(4) {
-    background-position: bottom right;
-}
-
-.bubble-need:nth-child(5) {
-    background-position: center;
-}
-
 /*********présentation**********/
 .hang {
     display: flex;
@@ -223,7 +162,7 @@ h1 {
     display: flex;
     justify-content: center;
     scroll-margin-top: 200px; 
-    margin: 60px 0 0 0;
+    margin: 200px 0 0 0;
 }
 .domain {
     display:flex;
@@ -243,7 +182,31 @@ h1 {
     color: #f8f5e0;
     padding: 20px;
     border-radius: 2%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background: url(./images/accueil/fond-about.png);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: white;
 }
+
+.bloc_domain:hover {
+transform: scale(1.20);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.bloc_domain:nth-child(1) {
+background-position: top right;
+}
+
+.bloc_domain:nth-child(2) {
+background-position: center;
+}
+
+.bloc_domain:nth-child(3) {
+background-position: bottom left;
+}
+
 
 .title-domain {
     display: flex;
@@ -334,7 +297,8 @@ h1 {
     font-family: "dancing script";
     font-weight: 800;
     font-style: normal;
-    margin: 0;
+    margin: 20px;
+    text-align: center;
   }
 
 /*********dev************/
@@ -489,6 +453,12 @@ h1 {
     margin: 10px 180px;
 }
 
+.photo-design {
+   width: 30%;
+   border-radius: 25%;
+   margin: 10px;
+}
+
 /**************photo************/
 .photo {
     background:#f8f5e0;
@@ -522,6 +492,7 @@ h1 {
 /**************compétences***************/
 .work {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -532,20 +503,12 @@ h1 {
     margin: 20px;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.competence {
-    display: flex;
-    flex-direction: row;
-}
-
 .software {
-    width: 70%;
+    width: 25%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 10px 50px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     background-color: white;
@@ -556,6 +519,7 @@ h2 {
 }
 
 .skill {
+    min-width: 80%;
     line-height: 0;
     display: flex; 
     flex-direction: row;
@@ -576,7 +540,7 @@ h2 {
 .level {
     height: 100%;
     background-color: #7D5CED;
-    width: 0%; 
+    width: 0%;
     transition: width 2s ease;
 }
 
@@ -595,7 +559,7 @@ h2 {
     flex-direction: column;
     text-align: center;
     margin: 0 10px;
-    color: #A60C0C;
+    color: black;
 }
 
 .gallery {
@@ -621,17 +585,19 @@ h2 {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center; 
     display: block;
     border-radius: 3px;
+    object-fit: contain;
+    border-radius: 10%;
 }
-
 
 .description {
     text-align: center;
     font-size: 0.9em;
     color: #333; 
+    font-family: "Walter Turncoat";
 }
 
 .description a {
@@ -741,11 +707,11 @@ h2 {
 }
 
 .portrait{
-    width: 80%;
+    width: 60%;
     height: auto;
     display: flex;
     justify-content: center;
-    border-radius: 15%;
+    border-radius: 50%;
     padding: 20px;
     font-family: "dancing script", cursive;
 } 
@@ -758,12 +724,6 @@ h2 {
     justify-content: center;
     align-items: center;
 }
-
-.title-dancing { 
-    font-family: "dancing script", cursive;
-    font-weight: 800;
-    font-style: normal;
-  }
 
  /***********formulaire**********/
 #contact {
@@ -864,7 +824,6 @@ button:hover {
         width: 80px; 
     }
     
-
     .typewriter p {
         font-size: 30px;
     }
@@ -891,16 +850,16 @@ button:hover {
     
     /*********dev************/
     .devweb {
-        margin: 0;
+        margin: 25px;
     }
     /**********design************/
     .design {
-        margin: 0;
+        margin: 25px;
     }
     
     /**************photo************/
     .photo {
-        margin: 0;
+        margin: 25px;
     }
     
     /**************compétences***************/
@@ -924,7 +883,6 @@ button:hover {
     
     .title-dancing { 
         font-size: 24px; 
-        margin: 0;
       }
     
      /***********formulaire**********/
@@ -981,7 +939,6 @@ button:hover {
     width: auto;
 }
 
-
 .banner-shrink .typewriter p {
     font-size: 14px; 
 }
@@ -994,28 +951,12 @@ button:hover {
     font-size: 20px;
 }
 
-/***********besoin*************/
-.title-need {
-    margin: 180px 0 0 0;
-}
-
-.need {
-    gap: 50px;
-}
-
-.bubble-need {
-    width: 75px;
-    height: 75px;
-    font-size: 10px;
-    padding: 0;
-}
-
 /***********Prestation********/
 #presta {
     width: 100%;
     display: flex;
     justify-content: center;
-    scroll-margin-top: 200px; 
+    scroll-margin-top: 0; 
 }
 
 .domain {
@@ -1097,10 +1038,6 @@ button:hover {
 .text-obj {
     text-indent: 20px;
 }
-
-.title-dancing { 
-    margin: 0;
-  }
 
 /*********dev************/
 .devweb {
@@ -1216,7 +1153,6 @@ button:hover {
     text-indent: 20px;
 }
 
-
 /**************compétences***************/
 .work {
     display: flex;
@@ -1225,7 +1161,7 @@ button:hover {
 }
 
 .software {
-    width: 80%;
+    width: 40%;
 }
 
 .réalisations {
@@ -1242,7 +1178,7 @@ button:hover {
     flex-wrap: wrap;
     gap: 10px; 
     justify-content: center;
-    margin: 1px0; 
+    margin: 1px; 
 }
 
 .gallery-item {
@@ -1255,6 +1191,7 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+
 }
 
 .gallery-item img {
@@ -1265,7 +1202,6 @@ button:hover {
     display: block;
     border-radius: 3px;
 }
-
 
 .description {
     text-align: center;
@@ -1351,42 +1287,29 @@ button:hover {
 
 /***********portrait************/
 #about {
-    margin: 50px;
-	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-	position: relative;
-    padding: 15px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);;
-    border-radius: 20px;
-    scroll-margin-top: 200px;
-    background-color: #A60C0C;
-    color: white;
+    margin:  50px 0;
+    box-shadow:none;
+    border-radius: 0;
+
 }
 
 .about-me {
     display: flex;
-    flex-direction: row;
-    flex: 2; 
+    flex-direction: column-reverse;
 }
 
 .about-me__img{
-    width: 70%;
-    text-indent: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width:100%;
+    border-radius: 50%;
+    font-display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .portrait{
-    width: 80%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    border-radius: 15%;
-    padding: 20px;
-    font-family: "dancing script", cursive;
+    width: 90%;
+    border-radius: 50%;
+    
 } 
 
 .about-me__introduction {
@@ -1408,7 +1331,7 @@ button:hover {
 .form-container { 
     display: flex; 
     flex-direction: row;
-    max-width: 50%;
+    max-width: 100%;
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -1491,5 +1414,134 @@ button:hover {
 }
 }
 @media all and (max-width: 425px) {
+    /************animation*********/
+.banner {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
 
+.banner-shrink .logo {
+    height: 50px; 
+    width: auto;
+}
+
+
+.banner-shrink .typewriter p {
+    display: flex; 
+    flex-wrap: wrap;
+    font-size: 12px; 
+}
+
+.logo {
+    width: 50px; 
+}
+
+.typewriter-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.typewriter p {
+    font-size: 20px;
+
+}
+
+    .gallery-item {
+        flex-basis: calc(80% - 10px); 
+    
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        object-position: center; 
+        display: block;
+        border-radius: 3px;
+    }
+    
+    
+    .description {
+        text-align: center;
+        font-size: 0.9em;
+        color: #333; 
+    }
+    
+    .description a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    
+    .description a:hover {
+        text-decoration: underline; 
+    }
+     /************modale************/
+     #modal {
+        display: none; 
+    }
+    
+    .modal {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh; 
+        background-color: rgba(0, 0, 0, 0.8); 
+    }
+    
+    .modal-content {
+        display: inline-flex;
+        flex-direction: column; 
+        margin: 50px;
+        width: 80%;
+        max-width: 800px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px 50px 20px 50px; 
+        position: relative;
+    }
+    
+    .modal-media {
+        max-width: 100%; 
+        max-height: 80vh; 
+        object-fit: contain; 
+        margin: auto;
+    }
+    
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: black;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .modal-navigation .prev,
+    .modal-navigation .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); 
+        width: auto;
+        padding: 10px;
+        color: black; 
+        font-weight: bold;
+        font-size: 24px;
+        transition: 0.6s ease;
+        user-select: none;
+    }
+    
+    .modal-navigation .prev {
+        left: 10px; 
+    }
+    
+    .modal-navigation .next {
+        right: 10px; 
+    }
+    
 }
