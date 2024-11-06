@@ -5,6 +5,7 @@ body {
     background-position: center; 
     background-repeat: no-repeat;
     background-color: #f8f5e0;
+    margin: 0;
 }
 
 h1 {
@@ -824,7 +825,6 @@ button:hover {
 
 /*********responsive***********/
 @media all and (max-width: 1024px) {
-
 /************animation*********/
     .logo {
         width: 80px; 
@@ -892,10 +892,8 @@ button:hover {
       }
 
 }
-@media all and (max-width: 768px) {
-  
+@media all and (max-width: 768px) { 
 /**************header*************/
-
 .nav ul {
     font-size: 10px;
     margin: 0 20px;
@@ -1116,17 +1114,12 @@ button:hover {
     transform: rotate(300deg) translate(115px) rotate(-300deg);
 }
 
-/**********design************/
+/************design***********/
 .design {
     background:#f8f5e0;
     padding: 20px;
-    box-shadow: none;
+    box-shadow:none;
     margin: 0;
-}
-
-.design {
-   display: flex;
-   flex-direction: column-reverse;  
 }
 
 /**************photo************/
