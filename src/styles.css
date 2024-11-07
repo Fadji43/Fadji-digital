@@ -77,7 +77,7 @@ h1 {
     position: fixed;
     top: 10px;
     left: 0;
-    width: 100%;
+   width: 100%;
     background-color: white;
     padding: 80px 0 0 0;
     display: flex;
@@ -241,7 +241,7 @@ background-position: bottom left;
     flex-direction: column;
     flex-wrap : wrap;
     border: 3px solid black;
-    max-width:  200px;
+    width:  200px;
     background-color: white;
     padding: 20px;
 }
@@ -402,7 +402,7 @@ background-position: bottom left;
 }
 
 .text-odit {
-    max-width: 120px;
+    width: 120px;
     position: absolute;
     font-size: 0.9rem;
     color: #333;
@@ -428,7 +428,6 @@ background-position: bottom left;
 .text-odit:nth-child(6) {
     transform: rotate(300deg) translate(150px) rotate(-300deg);
 }
-
 
 @keyframes rotate-infinite {
     from {
@@ -620,7 +619,7 @@ background-position: bottom left;
     flex-direction: column; 
     margin: 50px;
     width: 80%;
-    max-width: 800px;
+    width: 800px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -629,7 +628,7 @@ background-position: bottom left;
 }
 
 .modal-media {
-    max-width: 100%; 
+    width: 100%; 
     max-height: 80vh; 
     object-fit: contain; 
     margin: auto;
@@ -885,6 +884,14 @@ button:hover {
 
 }
 @media all and (max-width: 768px) { 
+    #presta, #modal, #about, .work {
+        margin: 0 0 0 10%; 
+    }
+
+    #devweb, #design, #photo {
+        width: 120%;
+    }
+    
 /**************header*************/
 .nav ul {
     font-size: 10px;
@@ -908,7 +915,6 @@ button:hover {
     position: fixed;
     top: 10px;
     left: 0;
-    width: 100%;
     background-color: white;
     padding: 55px 0 0 0;
     display: flex;
@@ -937,11 +943,9 @@ button:hover {
 }
 
 /***********Prestation********/
-
     #presta .categorie.active {
         display: block;  
     }
-
 
 .domain {
     display:flex;
@@ -978,7 +982,7 @@ button:hover {
     flex-direction: column;
     flex-wrap : wrap;
     border: 3px solid black;
-    max-width:  200px;
+    width:  200px;
     background-color: white;
     padding: 20px;
 }
@@ -1081,7 +1085,7 @@ button:hover {
 }
 
 .text-odit {
-    max-width: 120px;
+    width: 120px;
     font-size: 0.7rem;
 }
 
@@ -1124,7 +1128,7 @@ button:hover {
  .text-design_photo {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: center;
 }
 
 .text_descript {
@@ -1149,8 +1153,6 @@ button:hover {
 .hand {
     width: 70%;
 }
-
-
 
 /**************compétences***************/
 .work {
@@ -1245,7 +1247,6 @@ button:hover {
 
 }
 @media all and (max-width: 425px) {
-    
     /************animation*********/
 .banner {
     display: flex;
